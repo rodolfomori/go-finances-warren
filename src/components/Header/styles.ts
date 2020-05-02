@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 interface ContainerProps {
   size?: 'small' | 'large';
@@ -34,3 +35,5 @@ export const Container = styled.div<ContainerProps>`
     }
   }
 `;
+
+export const ListLink = styled(Link)``;
