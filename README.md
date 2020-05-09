@@ -1,6 +1,6 @@
 
 <h1 align="center">
-GoFinances Web
+GoFinances Web:money_with_wings:
 </h3>
 
 <p align="center">“Your limitation—it’s only your imagination.”!</blockquote>
@@ -42,10 +42,10 @@ $ git clone https://github.com/dolfomori/template-reactjs-fundaments.git
 # Go into the repository
 
 # Install dependencies
-$ yarn install
+$ npm install
 
 # Run the app
-$ yarn start
+$ npm start
 
 ```
 
