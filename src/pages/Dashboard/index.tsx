@@ -40,7 +40,7 @@ const Dashboard: React.FC = () => {
 
       setTransactions(
         responseTransaction.map(
-          (transaction: any): Transaction => ({
+          (transaction: Transaction): Transaction => ({
             ...transaction,
             category: { title: transaction.category.title },
             formattedValue: `${
