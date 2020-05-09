@@ -3,7 +3,7 @@
 GoFinances Web
 </h3>
 
-<p align="center">“Do not expect brilliant results if your goals are unclear”!</blockquote>
+<p align="center">“Your limitation—it’s only your imagination.”!</blockquote>
 
 <h3> 
   
