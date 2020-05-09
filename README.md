@@ -3,16 +3,46 @@
 GoFinances Web
 </h3>
 
-<p align="center">“Não espere resultados brilhantes se suas metas não forem claras”!</blockquote>
+<p align="center">“Do not expect brilliant results if your goals are unclear”!</blockquote>
 
+<h3> 
+  
+In this application made in ReactJs, you will be part of GoFinances.
+An app where you can put your expenses, divide by categories and monitor the health of your finances.
 
-## :rocket: Sobre a aplicação.
+And to make everything even better, it has the function of importing a CSV file
+with your expenses and it automatically upload everything to the application.
 
-Nessa aplicação feita em ReactJs, você entrará no GoFinances. 
-Um app onde você consegue colocar seus gastos, dividir por categorias e acompanhar a saúde das suas finanças.
+<h3>
+  
+<p align="center">
+  <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-how-to-use">How To Use</a>
+</p>
 
-E para deixar tudo ainda melhor, ele conta com a função de importar um arquivo CSV 
-com seus gastos e automaticamente ele passa tudo para o aplicativo.
+## :rocket: Technologies
 
+- [React](https://reactjs.org/)
+- [Axios](https://github.com/axios/axios)
+- [styled-components](https://www.styled-components.com/)
+- [VS Code](https://code.visualstudio.com/) with [EditorConfig](https://editorconfig.org/), [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/).
 
-by   [Rodolfo Mori](https://www.linkedin.com/in/rodolfomori/)
+## :information_source: How To Use
+
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node](https://nodejs.org) and ReactJS(https://reactjs.org/) installed on your computer. From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/dolfomori/template-reactjs-fundaments.git
+
+# Go into the repository
+
+# Install dependencies
+$ yarn install
+
+# Run the app
+$ yarn start
+
+```
+
+Made with ♥ by Rodolfo Mori :wave: [Get in touch!](https://www.linkedin.com/in/rodolfomori/)
