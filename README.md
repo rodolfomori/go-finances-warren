@@ -17,7 +17,8 @@ with your expenses and it automatically upload everything to the application.
   
 <p align="center">
   <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#information_source-how-to-use">How To Use</a>
+  <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#result">Result</a>
 </p>
 
 ## :rocket: Technologies
@@ -44,5 +45,10 @@ $ yarn install
 $ yarn start
 
 ```
+
+## Result
+
+<img src="https://github.com/dolfomori/template-reactjs-fundaments/blob/master/public/screen_shot1.png" width="800"><img src="https://github.com/dolfomori/template-reactjs-fundaments/blob/master/public/screen_shot2.png" width="800">
+
 
 Made with ♥ by Rodolfo Mori :wave: [Get in touch!](https://www.linkedin.com/in/rodolfomori/)
