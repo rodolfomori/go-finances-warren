@@ -1,57 +1,111 @@
+<h1 align="center" style="    max-width: 250px;
+    margin: 30px 0;">
+    <br>
+    Go Finances &nbsp; :mortar_board:
+</h1>
 
-<h1 align="center">
-GoFinances:money_with_wings:
-</h3>
 
 <p align="center">“Your limitation—it’s only your imagination.”!</blockquote>
-
-<h3>
-
-In this application made in ReactJs, you will be part of GoFinances.
-An app where you can put your expenses, divide by categories and monitor the health of your finances.
-
-And to make everything even better, it has the function of importing a CSV file
-with your expenses and it automatically upload everything to the application.
-
-</h3>
-
-  [API GoFinances!](https://github.com/dolfomori/gostack-template-typeorm-upload/)
 
 
 <p align="center">
   <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#result">Result</a>
+  <a href="#sunny-result">Result</a>
 </p>
+
+
 
 ## :rocket: Technologies
 
-- [React](https://reactjs.org/)
+This project was developed with the following technologies:
+
+- [ReactJS](https://reactjs.org/)
 - [Axios](https://github.com/axios/axios)
+- [Polished](https://polished.js.org/)
 - [styled-components](https://www.styled-components.com/)
-- [VS Code](https://code.visualstudio.com/) with [EditorConfig](https://editorconfig.org/), [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/).
+- [Prettier](https://prettier.io/)
+- [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
 
 ## :information_source: How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com), [Node](https://nodejs.org) and ReactJS(https://reactjs.org/) installed on your computer. From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [Yarn v1.13][yarn] or higher installed on your computer. From your command line:
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/dolfomori/template-reactjs-fundaments.git
+$ git clone https://github.com/rodolfomori/go-finances.git
 
 # Go into the repository
+$ cd go-finances
 
 # Install dependencies
-$ npm install
+$ yarn or npm install
 
 # Run the app
-$ npm start
+$ yarn or npm start
+```
+
+## :file_folder: Folder structure
+
+```bash
+
+.
+
+├── public
+│   └── index.html
+│
+├── src >> source code
+│   ├── assets
+│   ├── components
+│   ├── pages
+│   ├── routes
+│   ├── services
+│   │   └── api.js
+│   │
+│   ├── styles
+│   │   └── globalStyles.js
+│   │   └── theme.js
+│   │
+│   ├── utils
+│   ├── App.tsx
+│   └── index.tsx
+│
+│
+├── .editorconfig
+├── .eslintrc.json
+├── .gitignore
+├── jest.config.json
+├── tsconfig.json
+├── .prettierrc.js
+├── README.md
+└── package.json
+
+
 
 ```
 
-## Result
+## :sunny: Result
 
-<img src="https://github.com/dolfomori/template-reactjs-fundaments/blob/master/public/screen_shot1.png" width="800"><img src="https://github.com/dolfomori/template-reactjs-fundaments/blob/master/public/screen_shot2.png" width="800">
+  <div style="display: flex;   flex-direction: column;
+  align-items: center;">
+  <h1 align="center" style="display: flex; flex-direction:row;">
+      <img   style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/ScreenShot1.png" />
+        <img   style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/ScreenShot2.png" />
+              <img   style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/ScreenShot3.png" />
 
+  </h1>
+  <h1 align="center" style="display: flex; flex-direction:row;">
+      <img  style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot-3.png" />
+      <img  style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot-4.png" />
+  </h1>
+  </div>
+
+---
 
 Made with ♥ by Rodolfo Mori :wave: [Get in touch!](https://www.linkedin.com/in/rodolfomori/)
+
+[nodejs]: https://nodejs.org/
+[yarn]: https://yarnpkg.com/
+[vc]: https://code.visualstudio.com/
+[vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+[vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
