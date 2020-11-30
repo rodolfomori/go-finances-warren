@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 import { FiLogOut } from 'react-icons/fi';
 
-interface ContainerProps {
-  size?: 'small' | 'large';
-}
-
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div`
   background: black;
   padding: 30px 0;
 
@@ -14,9 +10,8 @@ export const Container = styled.div<ContainerProps>`
   }
 
   header {
-    width: 1120px;
     margin: 0 auto;
-    padding: ${({ size }) => (size === 'small' ? '0 20px ' : '0 20px 150px')};
+    padding: 0 20px 150px;
     display: flex;
     align-items: center;
     justify-content: space-between;

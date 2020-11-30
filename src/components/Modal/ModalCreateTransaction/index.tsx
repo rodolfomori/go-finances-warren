@@ -2,6 +2,7 @@ import React, { useRef, useCallback, useState } from 'react';
 import { FiFileText, FiAlignJustify } from 'react-icons/fi';
 import { GiMoneyStack } from 'react-icons/gi';
 import { AiOutlineClose } from 'react-icons/ai';
+import { toast } from 'react-toastify';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
@@ -38,7 +39,7 @@ const ModalCreateTransaction: React.FC<IModalProps> = ({
   isOpen,
   setIsOpen,
   afterConfirmModal,
-}) => {
+}: IModalProps) => {
   const formRef = useRef<FormHandles>(null);
   const [type, setType] = useState('income');
 
@@ -63,7 +64,9 @@ const ModalCreateTransaction: React.FC<IModalProps> = ({
         });
         afterConfirmModal(response.data);
         setIsOpen();
+        toast.success('Operação realizada com sucesso!');
       } catch (err) {
+        toast.error('Falha ao realizar a operação, tente novamente em breve!');
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
           formRef.current?.setErrors(errors);

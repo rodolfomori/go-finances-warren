@@ -40,6 +40,17 @@ const Dashboard: React.FC = () => {
   const [modalCreateTransaction, setModalCreateTransaction] = useState(false);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [balance, setBalance] = useState<Balance>({} as Balance);
+  const [desktop, setDesktop] = useState<boolean>(false);
+
+  useEffect(() => {
+    function handleResize(): void {
+      setDesktop(window.innerWidth > 500);
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   async function loadTransactions(): Promise<void> {
     const [response] = await Promise.all([api.get('transactions')]);
@@ -116,8 +127,12 @@ const Dashboard: React.FC = () => {
               <tr>
                 <th>Título</th>
                 <th>Preço</th>
-                <th>Categoria</th>
-                <th>Data</th>
+                {desktop && (
+                  <>
+                    <th>Categoria</th>
+                    <th>Data</th>
+                  </>
+                )}
               </tr>
             </thead>
             {transactions ? (
@@ -130,8 +145,12 @@ const Dashboard: React.FC = () => {
                         {transaction.type === 'outcome' && ' - '}
                         {transaction.formattedValue}
                       </td>
-                      <td>{transaction.category.title}</td>
-                      <td>{transaction.formattedDate}</td>
+                      {desktop && (
+                        <>
+                          <td>{transaction.category.title}</td>
+                          <td>{transaction.formattedDate}</td>
+                        </>
+                      )}
                     </tr>
                   );
                 })}

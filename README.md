@@ -4,17 +4,13 @@
     Go Finances &nbsp; :mortar_board:
 </h1>
 
-
 <p align="center">“Your limitation—it’s only your imagination.”!</blockquote>
-
 
 <p align="center">
   <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#sunny-result">Result</a>
 </p>
-
-
 
 ## :rocket: Technologies
 

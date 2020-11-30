@@ -18,9 +18,14 @@ export const Title = styled.h1`
 
 export const CardContainer = styled.section`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: 32px;
   margin-top: -150px;
+  @media (max-width: 800px) {
+    grid-template-rows: repeat(3, 1fr);
+  }
+  @media (min-width: 800px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 export const Card = styled.div`
