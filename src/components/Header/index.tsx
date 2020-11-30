@@ -1,42 +1,38 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { NavLink } from 'react-router-dom';
-
-import { Container } from './styles';
-
-import Logo from '../../assets/logo.svg';
+import { Container, LogOutIcon } from './styles';
+import Logo from '../../assets/logo.png';
 
 interface HeaderProps {
   size?: 'small' | 'large';
+  toggleModalCreateTransaction?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ size = 'large' }: HeaderProps) => (
-  <Container size={size}>
-    <header>
-      <img src={Logo} alt="GoFinances" />
-      <nav>
-        <NavLink
-          activeStyle={{
-            paddingBottom: '8px',
-            borderBottom: '2px solid #FF872C',
-          }}
-          exact
-          to="/"
-        >
-          Listagem
-        </NavLink>
-        <NavLink
-          activeStyle={{
-            paddingBottom: '8px',
-            borderBottom: '2px solid #FF872C',
-          }}
-          to="import"
-        >
-          Importar
-        </NavLink>
-      </nav>
-    </header>
-  </Container>
-);
+const Header: React.FC<HeaderProps> = ({
+  size = 'large',
+  toggleModalCreateTransaction,
+}: HeaderProps) => {
+  return (
+    <Container size={size}>
+      <header>
+        <Link to="/">
+          <img src={Logo} alt="GoFinances" />
+        </Link>
+        <nav>
+          <>
+            <Link to="/">Extrato</Link>
+            {toggleModalCreateTransaction && (
+              <button type="button" onClick={toggleModalCreateTransaction}>
+                Nova transação
+              </button>
+            )}
+            <Link to="/import">Importar</Link>
+          </>
+        </nav>
+      </header>
+    </Container>
+  );
+};
 
 export default Header;

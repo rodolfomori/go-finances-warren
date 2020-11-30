@@ -1,12 +1,12 @@
 
 <h1 align="center">
-GoFinances Web:money_with_wings:
+GoFinances:money_with_wings:
 </h3>
 
 <p align="center">“Your limitation—it’s only your imagination.”!</blockquote>
 
-<h3> 
-  
+<h3>
+
 In this application made in ReactJs, you will be part of GoFinances.
 An app where you can put your expenses, divide by categories and monitor the health of your finances.
 
@@ -14,10 +14,10 @@ And to make everything even better, it has the function of importing a CSV file
 with your expenses and it automatically upload everything to the application.
 
 </h3>
-  
+
   [API GoFinances!](https://github.com/dolfomori/gostack-template-typeorm-upload/)
 
-  
+
 <p align="center">
   <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

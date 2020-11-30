@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import income from '../../assets/income.svg';
 import outcome from '../../assets/outcome.svg';
 import total from '../../assets/total.svg';
 import api from '../../services/api';
-
 import Header from '../../components/Header';
-
 import formatValue from '../../utils/formatValue';
 
 import { Container, CardContainer, Card, TableContainer } from './styles';
+import ModalCreateTransaction from '../../components/Modal/ModalCreateTransaction';
 
 interface Transaction {
   id: string;
@@ -22,6 +21,15 @@ interface Transaction {
   created_at: Date;
 }
 
+interface TransactionNotFormatted {
+  id: string;
+  title: string;
+  value: number;
+  type: 'income' | 'outcome';
+  category: { title: string };
+  created_at: Date;
+}
+
 interface Balance {
   income: string;
   outcome: string;
@@ -29,42 +37,48 @@ interface Balance {
 }
 
 const Dashboard: React.FC = () => {
+  const [modalCreateTransaction, setModalCreateTransaction] = useState(false);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [balance, setBalance] = useState<Balance>({} as Balance);
 
-  useEffect(() => {
-    async function loadTransactions(): Promise<void> {
-      const transactionResponse = await api.get(`transactions`);
-      const responseBalance = transactionResponse.data.balance;
-      const responseTransaction = transactionResponse.data.transactions;
+  async function loadTransactions(): Promise<void> {
+    const [response] = await Promise.all([api.get('transactions')]);
 
-      setTransactions(
-        responseTransaction.map(
-          (transaction: Transaction): Transaction => ({
-            ...transaction,
-            category: { title: transaction.category.title },
-            formattedValue: `${
-              transaction.type === 'outcome' ? '-' : ''
-            } ${formatValue(transaction.value)}`,
-            formattedDate: new Date(transaction.created_at).toLocaleDateString(
-              'pt-br',
-            ),
-          }),
+    const transactionsFormatted = response.data.transactions.map(
+      (transaction: Transaction) => ({
+        ...transaction,
+        formattedValue: formatValue(transaction.value),
+        formattedDate: new Date(transaction.created_at).toLocaleDateString(
+          'pt-br',
         ),
-      );
+      }),
+    );
 
-      setBalance({
-        income: formatValue(responseBalance.income),
-        outcome: formatValue(responseBalance.outcome),
-        total: formatValue(responseBalance.total),
-      });
-    }
+    const balanceFormatted = {
+      income: formatValue(response.data.balance.income),
+      outcome: formatValue(response.data.balance.outcome),
+      total: formatValue(response.data.balance.total),
+    };
+
+    setTransactions(transactionsFormatted);
+    setBalance(balanceFormatted);
+  }
+
+  useEffect(() => {
+    loadTransactions();
+  }, []);
+
+  const toggleModalCreateTransaction = useCallback(() => {
+    setModalCreateTransaction(prevState => !prevState);
+  }, []);
+
+  const afterConfirmModal = useCallback(() => {
     loadTransactions();
   }, []);
 
   return (
     <>
-      <Header />
+      <Header toggleModalCreateTransaction={toggleModalCreateTransaction} />
       <Container>
         <CardContainer>
           <Card>
@@ -72,21 +86,27 @@ const Dashboard: React.FC = () => {
               <p>Entradas</p>
               <img src={income} alt="Income" />
             </header>
-            <h1 data-testid="balance-income">{balance.income}</h1>
+            <h1 data-testid="balance-income">
+              {balance ? balance.income : 'Carregando...'}
+            </h1>
           </Card>
           <Card>
             <header>
               <p>Saídas</p>
               <img src={outcome} alt="Outcome" />
             </header>
-            <h1 data-testid="balance-outcome">{balance.outcome}</h1>
+            <h1 data-testid="balance-outcome">
+              {balance ? balance.outcome : 'Carregando...'}
+            </h1>
           </Card>
           <Card total>
             <header>
               <p>Total</p>
               <img src={total} alt="Total" />
             </header>
-            <h1 data-testid="balance-total">{balance.total}</h1>
+            <h1 data-testid="balance-total">
+              {balance ? balance.total : 'Carregando...'}
+            </h1>
           </Card>
         </CardContainer>
 
@@ -100,26 +120,33 @@ const Dashboard: React.FC = () => {
                 <th>Data</th>
               </tr>
             </thead>
-
-            <tbody>
-              {transactions.map(transaction => (
-                <tr key={transaction.id}>
-                  <td className="title">{transaction.title}</td>
-                  <td
-                    className={
-                      transaction.type === 'income' ? 'income' : 'outcome'
-                    }
-                  >
-                    {transaction.formattedValue}
-                  </td>
-                  <td>{transaction.category.title}</td>
-                  <td>{transaction.formattedDate}</td>
-                </tr>
-              ))}
-            </tbody>
+            {transactions ? (
+              <tbody>
+                {transactions.map(transaction => {
+                  return (
+                    <tr key={transaction.id}>
+                      <td className="title">{transaction.title}</td>
+                      <td className={transaction.type}>
+                        {transaction.type === 'outcome' && ' - '}
+                        {transaction.formattedValue}
+                      </td>
+                      <td>{transaction.category.title}</td>
+                      <td>{transaction.formattedDate}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            ) : (
+              <p> Carregando...</p>
+            )}
           </table>
         </TableContainer>
       </Container>
+      <ModalCreateTransaction
+        isOpen={modalCreateTransaction}
+        setIsOpen={toggleModalCreateTransaction}
+        afterConfirmModal={afterConfirmModal}
+      />
     </>
   );
 };

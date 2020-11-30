@@ -1,13 +1,17 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { FiLogOut } from 'react-icons/fi';
 
 interface ContainerProps {
   size?: 'small' | 'large';
 }
 
 export const Container = styled.div<ContainerProps>`
-  background: #5636d3;
+  background: black;
   padding: 30px 0;
+
+  img {
+    max-width: 70px;
+  }
 
   header {
     width: 1120px;
@@ -18,6 +22,8 @@ export const Container = styled.div<ContainerProps>`
     justify-content: space-between;
 
     nav {
+      display: flex;
+      align-items: center;
       a {
         color: #fff;
         text-decoration: none;
@@ -32,8 +38,29 @@ export const Container = styled.div<ContainerProps>`
           opacity: 0.6;
         }
       }
+      button {
+        color: #fff;
+        border: none;
+        background-color: transparent;
+        font-size: 16px;
+        transition: opacity 0.2s;
+        margin: 0 16px;
+        &:hover {
+          opacity: 0.6;
+        }
+      }
     }
   }
 `;
 
-export const ListLink = styled(Link)``;
+export const LogOutIcon = styled(FiLogOut)`
+  margin-left: 20px;
+  color: #fff;
+  width: 28px;
+  height: 20px;
+  transition: 200ms;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+  }
+`;
