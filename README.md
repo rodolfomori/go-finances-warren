@@ -1,7 +1,7 @@
 <h1 align="center" style="    max-width: 250px;
     margin: 30px 0;">
     <br>
-    Go Finances &nbsp; :mortar_board:
+    Go Finances &nbsp; :moneybag:
 </h1>
 
 <p align="center">“Your limitation—it’s only your imagination.”!</blockquote>
@@ -28,8 +28,11 @@ This project was developed with the following technologies:
 To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v10.16][nodejs] or higher + [Yarn v1.13][yarn] or higher installed on your computer. From your command line:
 
 ```bash
+#Clone and Run API
+https://github.com/rodolfomori/go-finances-warren-api.git
+
 # Clone this repository
-$ git clone https://github.com/rodolfomori/go-finances.git
+$ git clone https://github.com/rodolfomori/go-finances-warren.git
 
 # Go into the repository
 $ cd go-finances
