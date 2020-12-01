@@ -43,7 +43,6 @@ $ yarn or npm install
 # Run the app
 $ yarn or npm start
 ```
-    <br>
 
 ```bash
 # Run tests
