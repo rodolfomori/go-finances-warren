@@ -63,7 +63,7 @@ $ yarn or npm start
 │   │
 │   ├── styles
 │   │   └── globalStyles.js
-│   │   └── theme.js
+│   │   
 │   │
 │   ├── utils
 │   ├── App.tsx
